@@ -1,36 +1,75 @@
 ---
 title: Models
 description: List of models supported by RIFX
+sidebar:
+  order: 2
 ---
 
-## Overview
+Rifx.online offers a diverse model library covering various artificial intelligence applications. We integrate models from top AI providers such as OpenAI, Anthropic, Meta, Google, and others, providing access through a unified API interface.
 
-RIFX supports a variety of models designed to cater to different needs and applications. These models are optimized for performance, accuracy, and efficiency.
+## Main Model Categories
 
-## Supported Models
+### 1. Text Processing Models (Text-to-Text)
+Currently available main models include:
 
-### 1. Text Generation Models
+- **Ministral 8B**
+  - Features: Unique interlaced sliding window attention pattern
+  - Context: 125K
+  - Price: $0.1/M input tokens, $0.1/M output tokens
+  - Suitable for: Edge computing scenarios
 
-- **GPT-3**: Known for its ability to generate human-like text, GPT-3 is ideal for applications such as chatbots, content creation, and more.
-- **BERT**: Primarily used for understanding the context of words in a sentence, BERT is excellent for tasks like sentiment analysis and question answering.
+- **Qwen2.5 Series**
+  - 7B version: Suitable for general application scenarios
+  - 72B version: Provides stronger coding and reasoning capabilities
+  - Context: 128K
+  - Features: Richer knowledge base compared to Qwen2
 
-### 2. Image Recognition Models
+- **Claude 3.5 Sonnet**
+  - Provider: Anthropic
+  - Context: 195.31K
+  - Price: $3/M input tokens, $15/M output tokens
+  - Specialties: Code writing, editing, and execution
 
-- **ResNet**: A powerful model for image classification tasks, ResNet is widely used in computer vision applications.
-- **YOLO**: Known for its speed and accuracy, YOLO is perfect for real-time object detection.
+### 2. Multimodal Models (Text-Image-to-Text)
+Models supporting both text and image inputs:
 
-### 3. Speech Recognition Models
+- **Meta Llama 3.2 Vision Series**
+  - 11B version: Suitable for general vision tasks
+  - 90B version: Suitable for complex visual reasoning
+  - Context: 128K
+  - Image processing fee: $0.079-0.506/K image tokens
 
-- **DeepSpeech**: An open-source model for converting speech to text, DeepSpeech is suitable for voice-controlled applications.
-- **Wav2Vec**: A model that excels in understanding and transcribing audio data, Wav2Vec is used in various speech recognition tasks.
+- **Qwen2-VL 72B**
+  - Features: Supports image understanding at various resolutions and ratios
+  - Context: 32K
+  - Price: $0.4/M tokens (input/output), $0.578/K image tokens
 
-## How to Choose a Model
+### 3. Professional Models
 
-When selecting a model, consider the following factors:
-- **Task Requirements**: Determine the specific needs of your application.
-- **Performance**: Evaluate the model's speed and accuracy.
-- **Resource Availability**: Consider the computational resources required to run the model.
+- **OpenAI o1 Series**
+  - mini version: $3/M input, $12/M output
+  - preview version: $15/M input, $60/M output
+  - Features: Focused on STEM fields including mathematics, science, and programming
 
-## Conclusion
+## Model Selection Guide
 
-RIFX's diverse range of models ensures that you can find the right solution for your specific needs, whether it's text generation, image recognition, or speech recognition.
+Consider the following factors when choosing models:
+
+### 1. Performance Requirements
+- **Response Speed**: For quick responses, choose models with smaller parameters like Llama 3.2 1B
+- **Accuracy**: For high accuracy requirements, consider large parameter models like Qwen2.5 72B
+
+### 2. Cost Considerations
+- **Low-cost Solutions**:
+  - Llama 3.2 1B: $0.01/M input, $0.02/M output
+  - Qwen2 7B: $0.054/M tokens
+- **High-performance Solutions**:
+  - Claude 3.5 Sonnet
+  - OpenAI o1 series
+
+### 3. Special Function Requirements
+- **Long Text Processing**: Choose models with larger context windows
+- **Image Processing**: Use multimodal models like Llama Vision or Qwen2-VL
+- **Professional Fields**: Select specially optimized models based on specific scenarios
+
+For more detailed information, visit [Rifx.online Models](https://rifx.online/models).

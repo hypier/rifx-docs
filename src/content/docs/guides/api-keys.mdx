@@ -1,20 +1,52 @@
 ---
 title: API Keys
-description: How to manage and use API Keys in RIFX
+description: How to manage and use RIFX API keys
+sidebar:
+  order: 3
 ---
 
-# API Keys
+API keys are essential credentials for accessing RIFX services, used to identify and authenticate users or applications. With API keys, you can securely authenticate and access specific API functionalities. This guide will detail how to obtain, manage, and securely use API keys.
 
-API Keys are used to authenticate and authorize access to RIFX services. In this guide, we will explain how to generate, manage, and use API Keys.
+## Getting API Keys
 
-## Generating API Keys
+### Registration and Login
+1. Visit [Rifx.online](https://rifx.online) to create an account
+2. Log in to the [RIFX Console](https://user.rifx.online/zh/dashboard/keys)
 
-To generate a new API Key, visit the [RIFX Console](#) and navigate to the API Keys section. Click the "Generate New Key" button.
+### Generating Keys
+1. Navigate to the "API Keys" page in the console
+2. Click the "Generate New Key" button
+3. Add a descriptive name for the key (recommend noting its purpose)
+4. Select key permission scope
+5. Confirm generation
 
-## Managing API Keys
-
-In the RIFX Console, you can view, disable, or delete existing API Keys. Make sure to regularly review and update your keys to ensure security.
+:::caution
+The newly generated API key will only be displayed once. Please ensure to save it securely. If lost, you'll need to generate a new key.
+:::
 
 ## Using API Keys
 
-When using the RIFX API, you need to include your API Key in the request header. For example:
+When making API requests, you need to include your API key in the request header. Example:
+
+```shell
+curl https://api.rifx.online/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $RIFX_API_KEY" \
+  -d '{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the purpose of existence?"
+    }
+  ]
+}'
+```
+
+## Security Best Practices
+
+1. Rotate keys regularly (recommended every 90 days)
+2. Revoke unused keys promptly
+3. Follow the principle of least privilege
+4. Avoid hardcoding keys in code
+5. Use environment variables to store keys

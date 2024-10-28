@@ -1,14 +1,15 @@
 ---
 title: Quick Start
-description: Get started quickly with the RIFX API
+description: Get started quickly with RIFX API
+sidebar:
+  order: 1
 ---
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 
-## Using the RIFX via API
+## Using RIFX via API
 
-To start using the RIFX via API, you can call our API in the following ways:
-
+To start using RIFX through API, you can call our API in the following ways:
 
 <Tabs syncKey="openai-client">
 <TabItem label="Python">
@@ -17,17 +18,17 @@ To start using the RIFX via API, you can call our API in the following ways:
 import requests
 import json
 
-# Send a POST request using the requests library
+# Send POST request using requests library
 response = requests.post(
   url="https://api.rifx.online/v1/chat/completions",
   headers={
-    "Authorization": f"Bearer {RIFX_API_KEY}" # Use your API key for authorization
+    "Authorization": f"Bearer {RIFX_API_KEY}" # Authorize using your API key
   },
   data=json.dumps({
     "model": "gpt-4o-mini", # Specify the model to use
     "messages": [
       {
-        "role": "user", # Role of the message
+        "role": "user", # Message role
         "content": "What is the purpose of existence?" # User input content
       }
     ]
@@ -39,18 +40,18 @@ response = requests.post(
 <TabItem label="Typescript">
 
 ```typescript
-// Send a POST request using the fetch API
+// Send POST request using fetch API
 fetch("https://api.rifx.online/v1/chat/completions", {
   method: "POST",
   headers: {
-    "Authorization": `Bearer ${RIFX_API_KEY}`, // Use your API key for authorization
-    "Content-Type": "application/json" // Specify the content type of the request body
+    "Authorization": `Bearer ${RIFX_API_KEY}`, // Authorize using your API key
+    "Content-Type": "application/json" // Specify request body content type
   },
   body: JSON.stringify({
     "model": "gpt-4o-mini", // Specify the model to use
     "messages": [
       {
-        "role": "user", // Role of the message
+        "role": "user", // Message role
         "content": "What is the purpose of existence?" // User input content
       }
     ]
@@ -63,15 +64,15 @@ fetch("https://api.rifx.online/v1/chat/completions", {
 <TabItem label="Shell">
 
 ```shell
-# Send a POST request using the curl command
+# Send POST request using curl command
 curl https://api.rifx.online/v1/chat/completions \
-  -H "Content-Type: application/json" \ 
-  -H "Authorization: Bearer $RIFX_API_KEY" \ 
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $RIFX_API_KEY" \
   -d '{
-  "model": "gpt-4o-mini", 
+  "model": "gpt-4o-mini",
   "messages": [
     {
-      "role": "user", 
+      "role": "user",
       "content": "What is the purpose of existence?"
     }
   ]
@@ -81,9 +82,9 @@ curl https://api.rifx.online/v1/chat/completions \
 </TabItem>
 </Tabs>
 
-## Using OpenAI's Client API
+## Using OpenAI Client API
 
-You can also use OpenAI's client API to interact with the RIFX API. Below are examples in Python and TypeScript:
+You can also interact with RIFX API using OpenAI's client API. Here are examples in Python and TypeScript:
 
 <Tabs syncKey="openai-client">
 <TabItem label="Python">
@@ -92,24 +93,24 @@ You can also use OpenAI's client API to interact with the RIFX API. Below are ex
 from openai import OpenAI
 from os import getenv
 
-# Get API Key from environment variable RIFX_API_KEY
+# Get API key from environment variable RIFX_API_KEY
 client = OpenAI(
   base_url="https://api.rifx.online/v1",
   api_key=getenv("RIFX_API_KEY"),
 )
 
-# Send a request using OpenAI's client library
+# Send request using OpenAI client library
 completion = client.chat.completions.create(
   model="gpt-4o-mini",  # Specify the model to use
   messages=[
     {
-      "role": "user",  # Role of the message
+      "role": "user",  # Message role
       "content": "What is the purpose of existence?"  # User input content
     }
   ]
 )
 
-# Print the response
+# Print response
 print(completion.choices[0].message.content)
 ```
 
@@ -119,25 +120,25 @@ print(completion.choices[0].message.content)
 ```typescript
 import OpenAI from "openai";
 
-// Set up the OpenAI API client
+// Set up OpenAI API client
 const openai = new OpenAI({
   baseURL: "https://api.rifx.online/v1",
   apiKey: process.env.RIFX_API_KEY
 });
 
-// Send a request using OpenAI's client library
+// Send request using OpenAI client library
 async function main() {
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini", // Specify the model to use
     messages: [
       {
-        role: "user", // Role of the message
+        role: "user", // Message role
         content: "What is the purpose of existence?" // User input content
       }
     ]
   });
 
-  // Print the response
+  // Print response
   console.log(completion.choices[0].message);
 }
 
@@ -150,7 +151,7 @@ main();
 ## Important Notes
 
 - **API Key**: Ensure you have obtained a valid RIFX API key and store it securely.
-- **Error Handling**: In real applications, it is recommended to add error handling logic to appropriately manage request failures.
-- **Model Selection**: Choose the appropriate model based on your needs; `gpt-4o-mini` is an example model.
+- **Error Handling**: In production applications, it's recommended to add error handling logic to properly manage request failures.
+- **Model Selection**: Choose appropriate models based on your needs; `gpt-4o-mini` is an example model.
 
-With these examples, you can quickly integrate the RIFX API into your application. Choose the implementation method that suits your programming language and needs.
+With these examples, you can quickly integrate RIFX API into your applications. Choose the implementation method that best suits your programming language and requirements.
