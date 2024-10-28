@@ -7,8 +7,8 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: {
-				en: 'Rifx.Online',
-				'zh-cn': 'Rifx.Online'
+				en: 'Rifx.Online Docs',
+				'zh-cn': 'Rifx.Online 文档'
 			},
 			social: {
 				github: 'https://github.com/withastro/starlight',

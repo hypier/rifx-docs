@@ -5,18 +5,50 @@ sidebar:
   order: 3
 ---
 
-# API 密钥
 
-API 密钥用于验证和授权访问 RIFX 服务。在本指南中，我们将解释如何生成、管理和使用 API 密钥。
+API 密钥（API Key）是访问 RIFX 服务的重要凭证，用于识别和验证用户或应用程序。通过 API 密钥，您可以安全地进行身份验证并访问特定的 API 功能。本指南将详细介绍如何获取、管理和安全使用 API 密钥。
 
-## 生成 API 密钥
+## 获取 API 密钥
 
-要生成新的 API 密钥，请访问 [RIFX 控制台](#) 并导航到 API 密钥部分。点击“生成新密钥”按钮。
+### 注册和登录
+1. 访问 [Rifx.online](https://rifx.online) 创建账户
+2. 登录 [RIFX 控制台](https://user.rifx.online/zh/dashboard/keys)
 
-## 管理 API 密钥
+### 生成密钥
+1. 在控制台导航至"API 密钥"页面
+2. 点击"生成新密钥"按钮
+3. 为密钥添加描述性名称（建议标注用途）
+4. 选择密钥权限范围
+5. 确认生成
 
-在 RIFX 控制台中，您可以查看、禁用或删除现有的 API 密钥。请确保定期审查和更新您的密钥以确保安全。
+:::caution
+新生成的 API 密钥只会显示一次。请确保安全保存，如果遗失需要重新生成新的密钥。
+:::
+
 
 ## 使用 API 密钥
 
-使用 RIFX API 时，您需要在请求头中包含您的 API 密钥。例如：
+在进行 API 请求时，需要在请求头中包含您的 API 密钥。示例：
+
+```shell
+curl https://api.rifx.online/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $RIFX_API_KEY" \
+  -d '{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "user",
+      "content": "存在的目的是什么？"
+    }
+  ]
+}'
+```
+
+## 安全最佳实践
+
+1. 定期轮换密钥（建议每 90 天）
+2. 及时撤销不再使用的密钥
+3. 遵循最小权限原则
+4. 避免在代码中硬编码密钥
+5. 使用环境变量存储密钥
