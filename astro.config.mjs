@@ -10,6 +10,11 @@ export default defineConfig({
 				en: 'Rifx.Online Docs',
 				'zh-cn': 'Rifx.Online 文档'
 			},
+			logo: {
+				light: './src/assets/logo.svg',
+				dark: './src/assets/dark-logo.svg',
+				alt: 'Rifx.Online Docs',
+			},
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
