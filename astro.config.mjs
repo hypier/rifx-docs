@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Rifx.Online',
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
@@ -15,7 +15,9 @@ export default defineConfig({
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Quick Start', slug: 'guides/quick-start' },
+						{ label: 'Models', slug: 'guides/models' },
+						{ label: 'API Keys', slug: 'guides/api-keys' },
 					],
 				},
 				{
