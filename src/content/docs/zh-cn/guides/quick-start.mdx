@@ -1,0 +1,155 @@
+---
+title: 快速开始
+description: 快速开始使用 RIFX API
+---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+
+## 通过 API 使用 RIFX
+
+要开始通过 API 使用 RIFX，您可以通过以下方式调用我们的 API：
+
+<Tabs syncKey="openai-client">
+<TabItem label="Python">
+
+```python
+import requests
+import json
+
+# 使用 requests 库发送 POST 请求
+response = requests.post(
+  url="https://api.rifx.online/v1/chat/completions",
+  headers={
+    "Authorization": f"Bearer {RIFX_API_KEY}" # 使用您的 API 密钥进行授权
+  },
+  data=json.dumps({
+    "model": "gpt-4o-mini", # 指定要使用的模型
+    "messages": [
+      {
+        "role": "user", # 消息的角色
+        "content": "存在的目的是什么？" # 用户输入的内容
+      }
+    ]
+  })
+)
+```
+
+</TabItem>
+<TabItem label="Typescript">
+
+```typescript
+// 使用 fetch API 发送 POST 请求
+fetch("https://api.rifx.online/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Authorization": `Bearer ${RIFX_API_KEY}`, // 使用您的 API 密钥进行授权
+    "Content-Type": "application/json" // 指定请求体的内容类型
+  },
+  body: JSON.stringify({
+    "model": "gpt-4o-mini", // 指定要使用的模型
+    "messages": [
+      {
+        "role": "user", // 消息的角色
+        "content": "存在的目的是什么？" // 用户输入的内容
+      }
+    ]
+  })
+});
+```
+
+</TabItem>
+
+<TabItem label="Shell">
+
+```shell
+# 使用 curl 命令发送 POST 请求
+curl https://api.rifx.online/v1/chat/completions \
+  -H "Content-Type: application/json" \ 
+  -H "Authorization: Bearer $RIFX_API_KEY" \ 
+  -d '{
+  "model": "gpt-4o-mini", 
+  "messages": [
+    {
+      "role": "user", 
+      "content": "存在的目的是什么？"
+    }
+  ]
+}'
+```
+
+</TabItem>
+</Tabs>
+
+## 使用 OpenAI 的客户端 API
+
+您还可以使用 OpenAI 的客户端 API 与 RIFX API 进行交互。以下是 Python 和 TypeScript 的示例：
+
+<Tabs syncKey="openai-client">
+<TabItem label="Python">
+
+```python
+from openai import OpenAI
+from os import getenv
+
+# 从环境变量 RIFX_API_KEY 获取 API 密钥
+client = OpenAI(
+  base_url="https://api.rifx.online/v1",
+  api_key=getenv("RIFX_API_KEY"),
+)
+
+# 使用 OpenAI 的客户端库发送请求
+completion = client.chat.completions.create(
+  model="gpt-4o-mini",  # 指定要使用的模型
+  messages=[
+    {
+      "role": "user",  # 消息的角色
+      "content": "存在的目的是什么？"  # 用户输入的内容
+    }
+  ]
+)
+
+# 打印响应
+print(completion.choices[0].message.content)
+```
+
+</TabItem>
+<TabItem label="Typescript">
+
+```typescript
+import OpenAI from "openai";
+
+// 设置 OpenAI API 客户端
+const openai = new OpenAI({
+  baseURL: "https://api.rifx.online/v1",
+  apiKey: process.env.RIFX_API_KEY
+});
+
+// 使用 OpenAI 的客户端库发送请求
+async function main() {
+  const completion = await openai.chat.completions.create({
+    model: "gpt-4o-mini", // 指定要使用的模型
+    messages: [
+      {
+        role: "user", // 消息的角色
+        content: "存在的目的是什么？" // 用户输入的内容
+      }
+    ]
+  });
+
+  // 打印响应
+  console.log(completion.choices[0].message);
+}
+
+main();
+```
+
+</TabItem>
+</Tabs>
+
+## 重要提示
+
+- **API 密钥**：确保您已获得有效的 RIFX API 密钥并安全存储。
+- **错误处理**：在实际应用中，建议添加错误处理逻辑以适当管理请求失败。
+- **模型选择**：根据您的需求选择合适的模型；`gpt-4o-mini` 是一个示例模型。
+
+通过这些示例，您可以快速将 RIFX API 集成到您的应用程序中。选择适合您编程语言和需求的实现方法。

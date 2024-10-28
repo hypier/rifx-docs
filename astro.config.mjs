@@ -6,25 +6,39 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Rifx.Online',
+			title: {
+				en: 'Rifx.Online',
+				'zh-cn': 'Rifx.Online'
+			},
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Quick Start', slug: 'guides/quick-start' },
-						{ label: 'Models', slug: 'guides/models' },
-						{ label: 'API Keys', slug: 'guides/api-keys' },
-					],
+			defaultLocale: 'root',
+			locales: {
+				root: {
+					label: 'English',
+					lang: 'en',
 				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+				'zh-cn': {
+					label: '简体中文',
+					lang: 'zh-CN',
 				},
-			],
+			},
+			// sidebar: [
+			// 	{
+			// 		label: 'Guides',
+			// 		items: [
+			// 			// Each item here is one entry in the navigation menu.
+			// 			{ label: 'Quick Start', slug: 'guides/quick-start' },
+			// 			{ label: 'Models', slug: 'guides/models' },
+			// 			{ label: 'API Keys', slug: 'guides/api-keys' },
+			// 		],
+			// 	},
+			// 	{
+			// 		label: 'Reference',
+			// 		autogenerate: { directory: 'reference' },
+			// 	},
+			// ],
 		}),
 	],
 });
