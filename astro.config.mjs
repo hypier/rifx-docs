@@ -20,7 +20,7 @@ export default defineConfig({
           },
           social: {
               github: 'https://github.com/rifx-online/rifx-docs',
-              email: 'support@rifx.online',
+              email: 'mailto:support@rifx.online',
           },
           defaultLocale: 'root',
           locales: {
