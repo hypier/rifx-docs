@@ -19,7 +19,8 @@ export default defineConfig({
               alt: 'Rifx.Online Docs',
           },
           social: {
-              github: 'https://github.com/hypier/rifx-docs'
+              github: 'https://github.com/rifx-online/rifx-docs',
+              email: 'support@rifx.online',
           },
           defaultLocale: 'root',
           locales: {
