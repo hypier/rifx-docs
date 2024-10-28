@@ -16,7 +16,7 @@ export default defineConfig({
 				alt: 'Rifx.Online Docs',
 			},
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/hypier/rifx-docs'
 			},
 			defaultLocale: 'root',
 			locales: {
