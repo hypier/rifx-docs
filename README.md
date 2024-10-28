@@ -1,55 +1,65 @@
-# Starlight Starter Kit: Basics
+# Rifx.online Documentation
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+[中文版](README_zh.md) | [English Version](README.md)
 
+Welcome to the Rifx.online documentation repository. Here, you'll find detailed guides and resources on how to use our AI API platform.
+
+## Contents
+
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
+- [API Key Management](#api-key-management)
+- [Model Selection Guide](#model-selection-guide)
+- [Usage Examples](#usage-examples)
+- [FAQ](#faq)
+- [Support](#support)
+
+## Introduction
+
+Rifx.online is a platform that integrates multiple AI models, designed to simplify the integration of AI services for developers and businesses. Through a unified API interface, you can access natural language processing, image recognition, and other generative models.
+
+## Quick Start
+
+1. **Register Account**: Visit [Rifx.online](https://rifx.online) to create an account.
+2. **Get API Key**: Log in to the [Console](https://user.rifx.online/zh/dashboard/keys) to generate your API Key.
+3. **Choose Model**: Browse and select the model that suits your needs.
+4. **Make Requests**: Call services through the unified API and handle responses.
+
+## API Key Management
+
+API Keys are your credentials for accessing all services. Generate and manage them securely in your console. For more details, see the [API Key Documentation](https://docs.rifx.online/guides/api-keys/).
+
+## Model Selection Guide
+
+Choose the most suitable model for your needs by comparing model features, performance, and compatibility. For detailed information, visit the [Model Selection Guide](https://docs.rifx.online/guides/models/).
+
+## Usage Examples
+
+Here's an example of how to call RIFX models via API:
+
+```bash
+curl https://api.rifx.online/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $RIFX_API_KEY" \
+  -d '{
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the purpose of existence?"
+    }
+  ]
+}'
 ```
-npm create astro@latest -- --template starlight
-```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+## FAQ
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Visit our [FAQ page](https://docs.rifx.online/) for answers to common questions about account management, API usage, and troubleshooting.
 
-## 🚀 Project Structure
+## Support
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+For further assistance or questions, please contact our support team:
+- **Email**: support@rifx.online
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Thank you for using Rifx.online. We welcome your feedback and suggestions!
